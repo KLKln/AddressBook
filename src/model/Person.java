@@ -1,11 +1,26 @@
+package model;
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="persons")
 public class Person {
-	
-	int personId;
-	String firstName;
-	String lastName;
-	LocalDate birthDate;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="PersonID")
+	private int personId;
+	@Column(name="FirstName")
+	private String firstName;
+	@Column(name="LastName")
+	private String lastName;
+	@Column(name="DateOfBirth")
+	private LocalDate birthDate;
 	
 	public Person(int personId, String firstName, String lastName, LocalDate birthDate) {
 		super();
@@ -14,6 +29,20 @@ public class Person {
 		this.lastName = lastName;
 		this.birthDate = birthDate;
 	}
+	
+	//to accept entry without ID
+	public Person(String firstName, String lastName, LocalDate birthDate) {		
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.birthDate = birthDate;
+	}
+	
+	//to accept entry without ID or knowing birthDate
+	public Person(String firstName, String lastName) {		
+		this.firstName = firstName;
+		this.lastName = lastName;		
+	}
+	
 	public Person() {
 		super();
 		// TODO Auto-generated constructor stub
