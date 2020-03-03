@@ -10,7 +10,7 @@ import javax.persistence.TypedQuery;
 import model.Person;
 
 public class PersonHelper {
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persons");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("AddressBook");
 	
 	public void insertPerson(Person p){
 		EntityManager em = emfactory.createEntityManager();
