@@ -47,7 +47,7 @@ public class EditPersonServlet extends HttpServlet {
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String birthDateString = request.getParameter("birthDate");
-		Integer tempId = Integer.parseInt(request.getParameter("id"));
+		Integer tempId = Integer.parseInt(request.getParameter("personId"));
 		
 		DateTimeFormatter f = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 		

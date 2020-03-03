@@ -47,8 +47,8 @@ public class NavigationServlet extends HttpServlet {
 		
 		if(act.contentEquals("delete")) {
 			try{Integer tempId = Integer.parseInt(request.getParameter("personId"));
-			Person PersonToRemove = dao.searchForPersonById(tempId);
-			dao.removePerson(PersonToRemove);
+			Person personToRemove = dao.searchForPersonById(tempId);
+			dao.removePerson(personToRemove);
 			}catch(NumberFormatException e) {
 				System.out.println("No person selected");
 			}
