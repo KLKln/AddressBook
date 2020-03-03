@@ -1,6 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,13 +46,17 @@ public class EditPersonServlet extends HttpServlet {
 		PersonHelper dao = new PersonHelper();
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
-		//String birthDate = request.getParameter("birthDate");
+		String birthDateString = request.getParameter("birthDate");
 		Integer tempId = Integer.parseInt(request.getParameter("id"));
+		
+		DateTimeFormatter f = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+		
+		LocalDate birthDate = LocalDate.parse(birthDateString, f);
 		
 		Person personToUpdate = dao.searchForPersonById(tempId);
 		personToUpdate.setFirstName(firstName);
 		personToUpdate.setLastName(lastName);
-		//personToUpdate.setBirthDate(birthDate.toString());
+		personToUpdate.setBirthDate(birthDate);
 		
 		dao.updatePerson(personToUpdate);
 		
