@@ -46,7 +46,7 @@ public class NavigationServlet extends HttpServlet {
 		act = request.getParameter("doThisToPerson");
 		
 		if(act.contentEquals("delete")) {
-			try{Integer tempId = Integer.parseInt(request.getParameter("id"));
+			try{Integer tempId = Integer.parseInt(request.getParameter("personId"));
 			Person PersonToRemove = dao.searchForPersonById(tempId);
 			dao.removePerson(PersonToRemove);
 			}catch(NumberFormatException e) {
@@ -55,7 +55,7 @@ public class NavigationServlet extends HttpServlet {
 	
 		} else if (act.contentEquals("edit")) {
 			try {
-			Integer tempId = Integer.parseInt(request.getParameter("id"));
+			Integer tempId = Integer.parseInt(request.getParameter("personId"));
 			Person personToEdit = dao.searchForPersonById(tempId);
 			request.setAttribute("personToEdit", personToEdit);
 			path = "/edit-person.jsp";

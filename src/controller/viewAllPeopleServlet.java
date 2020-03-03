@@ -29,7 +29,7 @@ public class viewAllPeopleServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		PersonHelper dao = new PersonHelper();
 		request.setAttribute("allPeople", dao.showAllPeople());
-		String path = "/address-book.jsp";
+		String path = "/view-all-people.jsp";
 		if(dao.showAllPeople().isEmpty()) {
 			path = "/personIndex.html";
 	}
