@@ -12,7 +12,7 @@
 <table>
 <c:forEach items="${requestScope.allPeople}" var="currentitem">
 <tr>
-	<td><input type="radio" name="personIid" value="${currentitem.personId}"></td>
+	<td><input type="radio" name="personId" value="${currentitem.personId}"></td>
 	<td>${currentitem.firstName}</td>
 	<td>${currentitem.lastName}</td>
 	<td>${currentitem.birthDate}</td>	

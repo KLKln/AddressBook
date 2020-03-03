@@ -11,6 +11,8 @@
 		First Name: <input type="text" name="firstName"	value="${personToEdit.firstName }"> 
 		Last Name: <input type="text" name="lastName" value="${personToEdit.lastName }">
 		Date of Birth: <input type="date" name="birthDate" placeholder = "MM/dd/yyyy" value="${personToEdit.birthDate }">
+		<input type = "hidden" name = "id" value="${personToEdit.personId}">
+		<input type = "submit" value="save updated person details">
 	</form>
 </body>
 </html>

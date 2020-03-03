@@ -49,7 +49,7 @@ public class EditPersonServlet extends HttpServlet {
 		String birthDateString = request.getParameter("birthDate");
 		Integer tempId = Integer.parseInt(request.getParameter("personId"));
 		
-		DateTimeFormatter f = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+		DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 		
 		LocalDate birthDate = LocalDate.parse(birthDateString, f);
 		
