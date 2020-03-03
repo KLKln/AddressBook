@@ -15,7 +15,7 @@ import model.Person;
 /**
  * Servlet implementation class EditPersonServlet
  */
-@WebServlet("/EditPersonServlet")
+@WebServlet("/editPersonServlet")
 public class EditPersonServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
