@@ -57,7 +57,7 @@ public class NavigationServlet extends HttpServlet {
 			try {
 			Integer tempId = Integer.parseInt(request.getParameter("id"));
 			Person personToEdit = dao.searchForPersonById(tempId);
-			request.setAttribute("itemToEdit", personToEdit);
+			request.setAttribute("personToEdit", personToEdit);
 			path = "/edit-person.jsp";
 			}catch(NumberFormatException e){
 				System.out.println("No person selected");
