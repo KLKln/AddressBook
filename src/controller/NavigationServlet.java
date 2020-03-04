@@ -29,7 +29,15 @@ public class NavigationServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		PersonHelper ph = new PersonHelper();
+		
+		request.setAttribute("allPeople", ph.showAllPeople());
+		
+		if(ph.showAllPeople().isEmpty()) {
+				request.setAttribute("allPeople", " ");
+		}
+		
+		getServletContext().getRequestDispatcher("/view-all-people.jsp").forward(request, response);		
 	}
 
 	/**
@@ -37,7 +45,6 @@ public class NavigationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
 		
 		String act = request.getParameter("doThisToPerson");
 		String path = "/viewAllPeopleServlet";
