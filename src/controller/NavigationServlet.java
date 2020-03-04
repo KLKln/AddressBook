@@ -64,7 +64,7 @@ public class NavigationServlet extends HttpServlet {
 			}
 		
 		} else if (act.contentEquals("add")) {
-			path = "/personIndex.html";
+			path = "/index.html";
 		}
 		
 		getServletContext().getRequestDispatcher(path).forward(request, response);

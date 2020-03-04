@@ -31,7 +31,7 @@ public class viewAllPeopleServlet extends HttpServlet {
 		request.setAttribute("allPeople", dao.showAllPeople());
 		String path = "/view-all-people.jsp";
 		if(dao.showAllPeople().isEmpty()) {
-			path = "/personIndex.html";
+			path = "/index.html";
 	}
 		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
