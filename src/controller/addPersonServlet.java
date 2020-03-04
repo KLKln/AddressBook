@@ -57,7 +57,7 @@ public class addPersonServlet extends HttpServlet {
 		PersonHelper dao = new PersonHelper();
 		dao.insertPerson(p);
 		
-		getServletContext().getRequestDispatcher("/personIndex.html").forward(request, response);
+		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 	}
 
 }
