@@ -2,9 +2,6 @@ package controller;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
-import  javax.persistence.AttributeConverter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -45,14 +42,10 @@ public class addPersonServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
-		
-		//I am uncertain how to implement local date for conversion on this
 		String birthDateString = request.getParameter("birthDate");
-		
-		DateTimeFormatter f = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-		
-		LocalDate birthDate = LocalDate.parse(birthDateString, f);
-		
+		 
+		LocalDate birthDate = LocalDate.parse(birthDateString);
+				
 		Person p = new Person(firstName, lastName, birthDate);
 		PersonHelper dao = new PersonHelper();
 		dao.insertPerson(p);
