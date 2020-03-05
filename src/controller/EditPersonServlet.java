@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.ContactInfo;
 import model.Person;
 
 /**
@@ -42,20 +43,31 @@ public class EditPersonServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PersonHelper dao = new PersonHelper();
-
+		ContactInfoHelper cih = new ContactInfoHelper();
+		
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String birthDateString = request.getParameter("birthDate");
 		Integer tempId = Integer.parseInt(request.getParameter("id"));
+		String phone = request.getParameter("phone");
+		String email = request.getParameter("email");
 		
 		LocalDate birthDate = LocalDate.parse(birthDateString);
 		
 		Person personToUpdate = dao.searchForPersonById(tempId);
+		ContactInfo contactInfoToAdd = new ContactInfo();
+
 		personToUpdate.setFirstName(firstName);
 		personToUpdate.setLastName(lastName);
 		personToUpdate.setBirthDate(birthDate);
+		contactInfoToAdd.setPhone(phone);
+		contactInfoToAdd.setEmail(email);
+		contactInfoToAdd.setID(tempId);
 		
 		dao.updatePerson(personToUpdate);
+		cih.insertContactInfo(contactInfoToAdd);
+		
+		
 		
 		getServletContext().getRequestDispatcher("/viewAllPeopleServlet").forward(request, response);
 		

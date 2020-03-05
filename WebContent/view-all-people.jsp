@@ -10,14 +10,16 @@
 <body>
 <form method = "post" action = "navigationServlet">
 <table>
-<c:forEach items="${requestScope.allPeople}" var="currentitem">
+<c:forEach items="${requestScope.allPeople}" var="currentPerson">
 <tr>
-	<td><input type="radio" name="personId" value="${currentitem.personId}"></td>
-	<td>${currentitem.firstName}</td>
-	<td>${currentitem.lastName}</td>
-	<td>${currentitem.birthDate}</td>	
+	<td><input type="radio" name="personId" value="${currentPerson.personId}"></td>
+	<td>${currentPerson.firstName}</td>
+	<td>${currentPerson.lastName}</td>
+	<td>${currentPerson.birthDate}</td>	
 </tr>
+
 </c:forEach>
+
 </table>
 <input type = "submit" value = "edit" name="doThisToPerson">
 <input type = "submit" value = "delete" name="doThisToPerson">

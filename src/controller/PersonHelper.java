@@ -22,7 +22,7 @@ public class PersonHelper {
 	
 	public List<Person>showAllPeople(){
 		EntityManager em = emfactory.createEntityManager();
-		List<Person> allPeople = em.createQuery("SELECT p from Person p").getResultList();
+		List<Person> allPeople = em.createQuery("SELECT DISTINCT p FROM Person p LEFT OUTER JOIN p.ContactInfo c").getResultList();
 		return allPeople;
 	}
 	
@@ -69,11 +69,9 @@ public class PersonHelper {
 	public void removePerson(Person toRemove) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<Person> typedQuery = em.createQuery("select p from Person p where p.firstName = :selectedFirstName and p.lastName = :selectedLastName and p.birthDate = :selectedBirthDate", Person.class);
+		TypedQuery<Person> typedQuery = (TypedQuery<Person>) em.createQuery("select p from Person p where p.personId = :selectedPersonId");
 		
-		typedQuery.setParameter("selectedFirstName", toRemove.getFirstName());
-		typedQuery.setParameter("selectedLastName",	toRemove.getLastName());
-		typedQuery.setParameter("selectedBirthDate", toRemove.getBirthDate());
+		typedQuery.setParameter("selectedPersonId", toRemove.getPersonId());
 
 		typedQuery.setMaxResults(1);
 		

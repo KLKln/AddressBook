@@ -1,8 +1,7 @@
 package model;
 import javax.persistence.JoinColumn;
 import java.time.LocalDate;
-import java.util.List;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,6 +25,7 @@ public class Person {
 	private String lastName;
 	@Column(name="DateOfBirth")
 	private LocalDate birthDate;
+/*
 	@OneToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
 	@JoinTable
 		(
@@ -33,7 +33,7 @@ public class Person {
 		      joinColumns={ @JoinColumn(name="PersonID", referencedColumnName="PersonID") }
 		)
 	
-	private List<ContactInfo> listOfContactInfo;
+	private List<ContactInfo> listOfContactInfo; */
 	
 	public Person(int personId, String firstName, String lastName, LocalDate birthDate) {
 		super();
