@@ -41,17 +41,14 @@ public class EditPersonServlet extends HttpServlet {
 	//I once again am not sure how to implement the date
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
-		
 		PersonHelper dao = new PersonHelper();
+
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String birthDateString = request.getParameter("birthDate");
-		Integer tempId = Integer.parseInt(request.getParameter("personId"));
+		Integer tempId = Integer.parseInt(request.getParameter("id"));
 		
-		DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-		
-		LocalDate birthDate = LocalDate.parse(birthDateString, f);
+		LocalDate birthDate = LocalDate.parse(birthDateString);
 		
 		Person personToUpdate = dao.searchForPersonById(tempId);
 		personToUpdate.setFirstName(firstName);
