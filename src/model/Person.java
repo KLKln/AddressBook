@@ -1,10 +1,16 @@
 package model;
+import javax.persistence.JoinColumn;
 import java.time.LocalDate;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +26,14 @@ public class Person {
 	private String lastName;
 	@Column(name="DateOfBirth")
 	private LocalDate birthDate;
+	@OneToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
+	@JoinTable
+		(
+			name="Contact_Info",
+		      joinColumns={ @JoinColumn(name="PersonID", referencedColumnName="PersonID") }
+		)
+	
+	private List<ContactInfo> listOfContactInfo;
 	
 	public Person(int personId, String firstName, String lastName, LocalDate birthDate) {
 		super();
