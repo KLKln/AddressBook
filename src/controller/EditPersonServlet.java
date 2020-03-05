@@ -41,7 +41,6 @@ public class EditPersonServlet extends HttpServlet {
 	//I once again am not sure how to implement the date
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
 		
 		PersonHelper dao = new PersonHelper();
 		String firstName = request.getParameter("firstName");
@@ -59,6 +58,8 @@ public class EditPersonServlet extends HttpServlet {
 		personToUpdate.setBirthDate(birthDate);
 		
 		dao.updatePerson(personToUpdate);
+		
+		
 		
 		getServletContext().getRequestDispatcher("/viewAllPeopleServlet").forward(request, response);
 		

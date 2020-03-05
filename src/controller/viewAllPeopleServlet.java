@@ -28,6 +28,7 @@ public class viewAllPeopleServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PersonHelper dao = new PersonHelper();
+		ContactInfoHelper cih = new ContactInfoHelper();
 		request.setAttribute("allPeople", dao.showAllPeople());
 		String path = "/view-all-people.jsp";
 		if(dao.showAllPeople().isEmpty()) {

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.ContactInfo;
 import model.Person;
 
 /**
@@ -50,6 +51,7 @@ public class NavigationServlet extends HttpServlet {
 		String path = "/viewAllPeopleServlet";
 		
 		PersonHelper dao = new PersonHelper();
+		ContactInfoHelper cih = new ContactInfoHelper();
 		act = request.getParameter("doThisToPerson");
 		
 		if(act.contentEquals("delete")) {
@@ -64,7 +66,9 @@ public class NavigationServlet extends HttpServlet {
 			try {
 			Integer tempId = Integer.parseInt(request.getParameter("personId"));
 			Person personToEdit = dao.searchForPersonById(tempId);
+			ContactInfo ciToEdit = cih.searchForContactInfoByID(tempId);
 			request.setAttribute("personToEdit", personToEdit);
+			request.setAttribute("ciToEdit", ciToEdit);
 			path = "/edit-person.jsp";
 			}catch(NumberFormatException e){
 				System.out.println("No person selected");

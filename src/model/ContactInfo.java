@@ -14,7 +14,7 @@ public class ContactInfo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
 	int contactId;
-	@Column(name = "PhoneNumber")
+	@Column(name = "Phone")
 	String phoneNumber;
 	@Column(name = "PhoneType")
 	String phoneType;
