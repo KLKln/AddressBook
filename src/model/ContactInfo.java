@@ -1,11 +1,28 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "contactInfo")
 public class ContactInfo {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
 	int contactId;
+	@Column(name = "PhoneType")
 	int phoneNumber;
+	@Column(name = "PhoneType")
 	String phoneType;
+	@Column(name = "Email")
 	String email;
+	@Column(name = "EmailType")
 	String emailType;
+	@Column(name = "PersonID")
 	int personId;
 	
 	public ContactInfo(int contactId, int phoneNumber, String phoneType, String email, String emailType, int personId) {
