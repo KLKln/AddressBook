@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import model.ContactInfo;
@@ -42,8 +43,8 @@ public class ContactInfoHelper {
 	public ContactInfo searchForContactInfoByID(int personId) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<ContactInfo> typedQuery = em.createQuery("select c from ContactInfo c where c.personId = :selectedPersonId", ContactInfo.class);
-		typedQuery.setParameter("selectedPersonId",  personId);
+		TypedQuery<ContactInfo> typedQuery = em.createQuery("select c from ContactInfo c where c.ID = :selectedID", ContactInfo.class);
+		typedQuery.setParameter("selectedID",  personId);
 		
 		typedQuery.setMaxResults(1);
 		ContactInfo found = typedQuery.getSingleResult();
@@ -56,18 +57,15 @@ public class ContactInfoHelper {
 	public void removeContactInfo(ContactInfo toRemove) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<Person> typedQuery = em.createQuery("select p from Person p where p.phone = :selectedPhoneNumber and p.phoneType = :selectedPhoneType and p.email = :selectedEmail and p.emailType = :selectedEmailType", Person.class);
+		Query typedQuery = em.createQuery("select c from ContactInfo c where c.ID = :selectedID");
 		
-		typedQuery.setParameter("selectedPhoneNumber", toRemove.getPhoneNumber());
-		typedQuery.setParameter("selectedPhoneType",	toRemove.getPhoneType());
-		typedQuery.setParameter("selectedEmail", toRemove.getEmail());
-		typedQuery.setParameter("selectedEmailType", toRemove.getEmailType());
+		typedQuery.setParameter("selectedID", toRemove.getID());
+
 
 		typedQuery.setMaxResults(1);
 		
-		Person result = typedQuery.getSingleResult();
+		Object result = typedQuery.getSingleResult();
 
-		
 		em.remove(result);
 		em.getTransaction().commit();
 		em.close();
