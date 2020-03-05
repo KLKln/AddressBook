@@ -2,8 +2,11 @@ package model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+<<<<<<< 97499ee1782564dd93471b2b1fe8bbbdf37b2ca2
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+=======
+>>>>>>> Made all the changes :)
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,6 +14,7 @@ import javax.persistence.Table;
 @Table(name = "contactInfo")
 public class ContactInfo {
 	@Id
+<<<<<<< 97499ee1782564dd93471b2b1fe8bbbdf37b2ca2
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
 	int contactId;
@@ -54,15 +58,21 @@ public class ContactInfo {
 
 
 	public ContactInfo(int contactId, String phoneNumber, String phoneType, String email, String emailType, int personId) {
-		super();
-		this.contactId = contactId;
-		this.phoneNumber = phoneNumber;
-		this.phoneType = phoneType;
-		this.email = email;
-		this.emailType = emailType;
-		this.personId = personId;
-	}
+=======
+	@Column(name = "ID")
+	int ID;
+	@Column(name = "Phone")
+	String phone;
+	@Column(name = "Email")
+	String email;
 
+	public ContactInfo() {
+>>>>>>> Made all the changes :)
+		super();
+	}
+	
+
+<<<<<<< 97499ee1782564dd93471b2b1fe8bbbdf37b2ca2
 	@Override
 	public String toString() {
 		return "ContactInfo [contactId=" + contactId + ", phoneNumber=" + phoneNumber + ", phoneType=" + phoneType
@@ -71,26 +81,38 @@ public class ContactInfo {
 	
 	public int getContactId() {
 		return contactId;
+=======
+	public ContactInfo(int iD, String phone) {
+		super();
+		ID = iD;
+		this.phone = phone;
+>>>>>>> Made all the changes :)
 	}
 
-	public void setContactId(int contactId) {
-		this.contactId = contactId;
-	}
 
+<<<<<<< 97499ee1782564dd93471b2b1fe8bbbdf37b2ca2
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+=======
+	public int getID() {
+		return ID;
 	}
 
-	public String getPhoneType() {
-		return phoneType;
+	public void setID(int iD) {
+		ID = iD;
+>>>>>>> Made all the changes :)
 	}
 
-	public void setPhoneType(String phoneType) {
-		this.phoneType = phoneType;
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public String getEmail() {
@@ -101,6 +123,7 @@ public class ContactInfo {
 		this.email = email;
 	}
 
+<<<<<<< 97499ee1782564dd93471b2b1fe8bbbdf37b2ca2
 	public String getEmailType() {
 		return emailType;
 	}
@@ -118,7 +141,10 @@ public class ContactInfo {
 	}
 
 
+=======
+>>>>>>> Made all the changes :)
 	
 	
-
+	
+	
 }
