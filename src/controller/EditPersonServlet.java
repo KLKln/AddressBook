@@ -60,9 +60,9 @@ public class EditPersonServlet extends HttpServlet {
 		personToUpdate.setFirstName(firstName);
 		personToUpdate.setLastName(lastName);
 		personToUpdate.setBirthDate(birthDate);
-		contactInfoToAdd.setPhone(phone);
+		contactInfoToAdd.setPhoneNumber(phone);
 		contactInfoToAdd.setEmail(email);
-		contactInfoToAdd.setID(tempId);
+		contactInfoToAdd.setContactId(tempId);
 		
 		dao.updatePerson(personToUpdate);
 		cih.insertContactInfo(contactInfoToAdd);

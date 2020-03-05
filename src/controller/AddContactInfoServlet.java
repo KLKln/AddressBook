@@ -30,11 +30,9 @@ public class AddContactInfoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	    String phoneNumber = request.getParameter("phoneNumber");
-	    String phoneType = request.getParameter("phoneType");
 	    String email = request.getParameter("email");
-	    String emailType = request.getParameter("emailType");
-	    
-	    ContactInfo ci = new ContactInfo(phoneNumber, phoneType, email, emailType);
+	    	    
+	    ContactInfo ci = new ContactInfo(phoneNumber, email);
 	    ContactInfoHelper cih = new ContactInfoHelper();
 	    cih.insertContactInfo(ci);
 	    

@@ -2,11 +2,11 @@ package model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-<<<<<<< 97499ee1782564dd93471b2b1fe8bbbdf37b2ca2
+//<<<<<<< 97499ee1782564dd93471b2b1fe8bbbdf37b2ca2
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-=======
->>>>>>> Made all the changes :)
+//=======
+//>>>>>>> Made all the changes :)
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,7 +14,76 @@ import javax.persistence.Table;
 @Table(name = "contactInfo")
 public class ContactInfo {
 	@Id
-<<<<<<< 97499ee1782564dd93471b2b1fe8bbbdf37b2ca2
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
+	int contactId;
+	@Column(name = "Phone")
+	String phoneNumber;
+	@Column(name = "Email")
+	String email;
+	@Column(name = "PersonID")
+	int personId;
+	
+	public ContactInfo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public ContactInfo(int contactId, String phoneNumber, String email, int personId) {
+		super();
+		this.contactId = contactId;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.personId = personId;
+	}
+	
+	public ContactInfo(int contactId, String phoneNumber, String email) {
+		super();
+		this.contactId = contactId;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+	}
+	
+	public ContactInfo(String phoneNumber, String email) {
+		super();
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+	}
+
+	public int getContactId() {
+		return contactId;
+	}
+
+	public void setContactId(int contactId) {
+		this.contactId = contactId;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getPersonId() {
+		return personId;
+	}
+
+	public void setPersonId(int personId) {
+		this.personId = personId;
+	}
+	
+	
+/*<<<<<<< 97499ee1782564dd93471b2b1fe8bbbdf37b2ca2
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
 	int contactId;
@@ -58,7 +127,7 @@ public class ContactInfo {
 
 
 	public ContactInfo(int contactId, String phoneNumber, String phoneType, String email, String emailType, int personId) {
-=======
+//=======
 	@Column(name = "ID")
 	int ID;
 	@Column(name = "Phone")
@@ -67,7 +136,7 @@ public class ContactInfo {
 	String email;
 
 	public ContactInfo() {
->>>>>>> Made all the changes :)
+//>>>>>>> Made all the changes :)
 		super();
 	}
 	
@@ -142,7 +211,7 @@ public class ContactInfo {
 
 
 =======
->>>>>>> Made all the changes :)
+//>>>>>>> Made all the changes :)*/
 	
 	
 	

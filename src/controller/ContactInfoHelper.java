@@ -59,7 +59,7 @@ public class ContactInfoHelper {
 		em.getTransaction().begin();
 		Query typedQuery = em.createQuery("select c from ContactInfo c where c.ID = :selectedID");
 		
-		typedQuery.setParameter("selectedID", toRemove.getID());
+		typedQuery.setParameter("selectedID", toRemove.getContactId());
 
 
 		typedQuery.setMaxResults(1);
