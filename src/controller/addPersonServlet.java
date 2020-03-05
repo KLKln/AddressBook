@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.ContactInfo;
 import model.Person;
 
 /**
@@ -48,15 +49,21 @@ public class addPersonServlet extends HttpServlet {
 		
 		//I am uncertain how to implement local date for conversion on this
 		String birthDateString = request.getParameter("birthDate");
+		String phoneNumber = request.getParameter("phoneNumber");
+		String phoneType = request.getParameter("phoneType");
+		String email = request.getParameter("email");
+		String emailType = request.getParameter("emailType");
 		
-		DateTimeFormatter f = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-		
-		LocalDate birthDate = LocalDate.parse(birthDateString, f);
+		LocalDate birthDate = LocalDate.parse(birthDateString);
 		
 		Person p = new Person(firstName, lastName, birthDate);
 		PersonHelper dao = new PersonHelper();
 		dao.insertPerson(p);
 		
+		ContactInfo ci = new ContactInfo(phoneNumber, phoneType, email, emailType);
+		ContactInfoHelper cih = new ContactInfoHelper();
+		cih.insertContactInfo(ci);
+
 		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 	}
 
