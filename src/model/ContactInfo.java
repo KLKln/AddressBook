@@ -15,7 +15,7 @@ public class ContactInfo {
 	@Column(name = "ID")
 	int contactId;
 	@Column(name = "PhoneNumber")
-	int phoneNumber;
+	String phoneNumber;
 	@Column(name = "PhoneType")
 	String phoneType;
 	@Column(name = "Email")
@@ -25,7 +25,35 @@ public class ContactInfo {
 	@Column(name = "PersonID")
 	int personId;
 	
-	public ContactInfo(int contactId, int phoneNumber, String phoneType, String email, String emailType, int personId) {
+	
+	public ContactInfo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public ContactInfo(int contactId, String phoneNumber, String phoneType, String email, String emailType) {
+		super();
+		this.contactId = contactId;
+		this.phoneNumber = phoneNumber;
+		this.phoneType = phoneType;
+		this.email = email;
+		this.emailType = emailType;
+	}
+
+
+
+	public ContactInfo(String phoneNumber, String phoneType, String email, String emailType) {
+		super();
+		this.phoneNumber = phoneNumber;
+		this.phoneType = phoneType;
+		this.email = email;
+		this.emailType = emailType;
+	}
+
+
+
+	public ContactInfo(int contactId, String phoneNumber, String phoneType, String email, String emailType, int personId) {
 		super();
 		this.contactId = contactId;
 		this.phoneNumber = phoneNumber;
@@ -35,6 +63,12 @@ public class ContactInfo {
 		this.personId = personId;
 	}
 
+	@Override
+	public String toString() {
+		return "ContactInfo [contactId=" + contactId + ", phoneNumber=" + phoneNumber + ", phoneType=" + phoneType
+				+ ", email=" + email + ", emailType=" + emailType + ", personId=" + personId + "]";
+	}
+	
 	public int getContactId() {
 		return contactId;
 	}
@@ -43,11 +77,11 @@ public class ContactInfo {
 		this.contactId = contactId;
 	}
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
@@ -83,16 +117,7 @@ public class ContactInfo {
 		this.personId = personId;
 	}
 
-	public ContactInfo() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
-	@Override
-	public String toString() {
-		return "ContactInfo [contactId=" + contactId + ", phoneNumber=" + phoneNumber + ", phoneType=" + phoneType
-				+ ", email=" + email + ", emailType=" + emailType + ", personId=" + personId + "]";
-	}
 	
 	
 
