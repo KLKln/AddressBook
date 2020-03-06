@@ -81,6 +81,12 @@ public class ContactInfo {
 	public void setPersonId(int personId) {
 		this.personId = personId;
 	}
+
+	@Override
+	public String toString() {
+		return "ContactInfo [contactId=" + contactId + ", phoneNumber=" + phoneNumber + ", email=" + email
+				+ ", personId=" + personId + "]";
+	}
 	
 	
 /*<<<<<<< 97499ee1782564dd93471b2b1fe8bbbdf37b2ca2

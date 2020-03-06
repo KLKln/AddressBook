@@ -43,11 +43,13 @@ public class ContactInfoHelper {
 	public ContactInfo searchForContactInfoByID(int personId) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<ContactInfo> typedQuery = em.createQuery("select c from ContactInfo c where c.ID = :selectedID", ContactInfo.class);
+		ContactInfo found = em.find(ContactInfo.class, personId);
+		/*em.getTransaction().begin();
+		TypedQuery<ContactInfo> typedQuery = em.createQuery("select c.PersonID, c.Phone, c.Email from contactInfo where c.PersonID = persons.PersonID", ContactInfo.class);
 		typedQuery.setParameter("selectedID",  personId);
 		
 		typedQuery.setMaxResults(1);
-		ContactInfo found = typedQuery.getSingleResult();
+		ContactInfo found = typedQuery.getSingleResult();*/
 		
 		em.close();
 		return found;

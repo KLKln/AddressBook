@@ -48,7 +48,7 @@ public class EditPersonServlet extends HttpServlet {
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String birthDateString = request.getParameter("birthDate");
-		Integer tempId = Integer.parseInt(request.getParameter("id"));
+		Integer tempId = Integer.parseInt(request.getParameter("Id"));
 		String phone = request.getParameter("phone");
 		String email = request.getParameter("email");
 		
@@ -62,7 +62,7 @@ public class EditPersonServlet extends HttpServlet {
 		personToUpdate.setBirthDate(birthDate);
 		contactInfoToAdd.setPhoneNumber(phone);
 		contactInfoToAdd.setEmail(email);
-		contactInfoToAdd.setContactId(tempId);
+		contactInfoToAdd.setPersonId(tempId);
 		
 		dao.updatePerson(personToUpdate);
 		cih.insertContactInfo(contactInfoToAdd);
