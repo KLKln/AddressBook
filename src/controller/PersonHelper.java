@@ -22,7 +22,7 @@ public class PersonHelper {
 	
 	public List<Person>showAllPeople(){
 		EntityManager em = emfactory.createEntityManager();
-		List<Person> allPeople = em.createQuery("SELECT DISTINCT p FROM Person p LEFT OUTER JOIN p.ContactInfo c").getResultList();
+		List<Person> allPeople = em.createQuery("SELECT p FROM Person p ").getResultList();
 		return allPeople;
 	}
 	
